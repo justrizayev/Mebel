@@ -1,0 +1,93 @@
+{% extends 'dashboard/base.html' %}
+{% block title %}Product | Detail{% endblock %}
+{% load static %}
+{% block content %}
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">{{ pro.name }}</h4>
+            <p class="category">Bu yerda {{ pro.name }} bilan tanishishingiz mumkin!</p>
+        </div>
+        <div class="card-content table-responsive table-full-width">
+            <table class="table table-striped">
+                <thead>
+                    <th><b>Key</b></th>
+                    <th><b>Value</b></th>
+
+                </thead>
+                <tbody>
+                <tr>
+                    <td><b>ID</b></td>
+                    <td>{{ pro.id }}</td>
+                </tr>
+                <tr>
+                    <td><b>Name</b></td>
+                    <td>{{ pro.name }}</td>
+                </tr>
+                <tr>
+                    <td><b>Price</b></td>
+                    <td>{{ pro.price }}</td>
+                </tr>
+                <tr>
+                    <td><b>Mebel uzunligi</b></td>
+                    <td>{{ pro.gabarit_uzun }}</td>
+                </tr>
+                <tr>
+                    <td><b>Mebel eni</b></td>
+                    <td>{{ pro.gabarit_eni }}</td>
+                </tr>
+                <tr>
+                    <td><b>Mebel balandligi</b></td>
+                    <td>{{ pro.gabarit_baland }}</td>
+                </tr>
+                 <tr>
+                    <td><b>Krovat uzun</b></td>
+                    <td>{{ pro.spalni_uzun }}</td>
+                </tr>
+                 <tr>
+                    <td><b>Krovat eni</b></td>
+                    <td>{{ pro.spalni_eni }}</td>
+                </tr>
+                 <tr>
+                    <td><b>Krovat balandligi</b></td>
+                    <td>{{ pro.spalni_baland }}</td>
+                </tr>
+                 <tr>
+                    <td><b>Rangi</b></td>
+                    <td>{{ pro.color }}</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <a href="{% url 'dashboard-pro-edit' pk=pro.id %}">
+        <button type="button" class="btn btn-wd btn-info btn-rotate">
+            <span class="btn-label">
+                <i class="ti-pencil"></i>
+            </span> Edit Category
+        </button>
+        </a>
+        <a href="{% url 'dashboard-pro-delete' pk=pro.id %}">
+            <button type="button" class="btn btn-wd btn-danger btn-rotate">
+                <span class="btn-label">
+                    <i class="ti-trash"></i>
+                </span>
+                Delete Category
+            </button>
+        </a>
+        <a href="{% url 'dashboard-pro-list' %}">
+            <button type="button" class="btn btn-wd btn-default btn-move-left">
+                <span class="btn-label">
+                    <i class="ti-angle-left"></i>
+                </span>
+                Back to list
+            </button>
+        </a>
+    </div>
+</div>
+{% endblock %}
+
+
+
+

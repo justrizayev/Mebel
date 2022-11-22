@@ -1,0 +1,59 @@
+{% extends 'dashboard/base.html' %}
+{% block title %}Category | List{% endblock %}
+{% load static %}
+{% block content %}
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">Mebellar</h4>
+            <p class="category"></p>
+        </div>
+
+        <div class="card-content table-responsive table-full-width">
+            {% if pro %}
+            <table class="table table-striped">
+                <thead>
+
+                    <th>№</th>
+                    <th>Name</th>
+                    <th>ID</th>
+                    <th>Actions</th>
+
+                </thead>
+                <tbody>
+                {% for i in pro %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ i.name }}</td>
+                        <td>{{ i.id }}</td>
+                        <td class="">
+                            <a href="{% url 'dashboard-pro-detail' pk=i.id %}" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs">
+                                <i class="ti-user"></i>
+                            </a>
+                            <a href="{% url 'dashboard-pro-edit' pk=i.id %}" rel="tooltip" title="Edit {{ i.content }}" class="btn btn-success btn-simple btn-xs">
+                                <i class="ti-pencil-alt"></i>
+                            </a>
+                            <a href="{% url 'dashboard-pro-confirm' pk=i.id %}" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                                <i class="ti-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <h2> Hozircha product yo'q</h2>
+            {% endif %}
+        </div>
+        <a href="{% url 'dashboard-pro-add' %}">
+            <button type="button" class="btn btn-wd btn-info btn-rotate">
+                <span class="btn-label">
+                    <i class="ti-plus"></i>
+                </span> Add Product
+            </button>
+        </a>
+    </div>
+</div>
+{% endblock %}
+

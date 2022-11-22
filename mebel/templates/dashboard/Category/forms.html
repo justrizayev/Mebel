@@ -1,0 +1,49 @@
+{% extends 'dashboard/base.html' %}
+{% block title %}Category | List{% endblock %}
+{% load static %}
+{% block content %}
+<div class="col-md-6">
+    <div class="card">
+        <form class="form-horizontal" method="post">
+            {% csrf_token %}
+            <div class="card-header">
+                <h4 class="card-title">
+                    Add Category
+                </h4>
+            </div>
+            <div class="card-content">
+                {{ forms.as_p }}
+                <div class="form-group">
+                    <label class="col-md-3"></label>
+                    <div class="col-md-9">
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="form-group">
+                    <label class="col-md-3"></label>
+                    <div class="col-md-9">
+
+                        <button class="btn btn-wd btn-rotate">
+                            <span class="btn-label">
+                                <i class="ti-check"></i>
+                            </span>
+                            Save
+                        </button>
+
+                        <a href="{% url 'dashboard-ctg-list' %}">
+                            <button type="button" class="btn btn-wd btn-default btn-move-left">
+                                <span class="btn-label">
+                                    <i class="ti-angle-left"></i>
+                                </span>
+                                Back to list
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
